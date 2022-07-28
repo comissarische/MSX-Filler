@@ -11,7 +11,6 @@
 120 C=CL%(I%): S=SCL%(I%): X = I%*15-10: Y=200
 130 GOSUB 1050
 140 NEXT I%
-
 150 DATA 8,7,2,2,6,5,0,0, 10,7,7,2,14,5,5,2, 9,7,7,7,1,5,5,5, 3,2,7,2,2,0,5,0, 7,2,7,7,11,0,5,5, 5,2,2,7,4,0,0,5, 13,7,2,7,12,5,0,5
 170 X=9:STP=6:Y=4
 180 C=4:A$="F":GOSUB 1590:X=X+STP-1
@@ -23,7 +22,7 @@
 240 SET PAGE 0,0
 250 LINE(10,100)-(240,115),,B
 270 IF INKEY$<>"" THEN GOTO 270 'clear keyboard buffer
-280 C=15:X=0:Y=200:A$="  > (c)Comissar 2022, v1.07 <  ":GOSUB 1590
+280 C=15:X=0:Y=200:A$="  > (c)Comissar 2022, v1.09 <  ":GOSUB 1590
 285 LINE (166,200)-(171,202),4,BF
 287 LINE (166,203)-(171,205),10,BF
 290 FOR J=4 TO 10
@@ -42,9 +41,7 @@
 400 LINE(50,150)-(66,181),0,bf
 401 Y=140+PC*10:A$=">":GOSUB 1590:COPY(52,150)-STEP(10,32) TO (51,150),,TPSET 
 403 gosub 1720:A$=INKEY$: GOSUB 1640: IF A$="" AND RS%(1,2)=0 AND RS%(2,2)=0 AND RS%(3,2)=0 AND RS%(4,2)=0 THEN GOTO 403 ELSE IF A$<>" " AND ASC(A$)<>13 AND RS%(1,2)=0 AND RS%(2,2)=0 THEN PC%=PC% mod 3 + 1:GOTO 400
-
 405 if PC%<>3 then goto 440 
-
 406 LINE (41,146)-(209,181),0,BF
 407 C=15:X=60:Y=150:if DZ=1 THEN A$="  Standart  " ELSE A$="  Classic  "
 408 GOSUB 1590
@@ -58,7 +55,6 @@
 422 IF PC%=2 THEN BL=3-BL:color=(15,7,7,7)
 430 IF PC%=3 THEN SET PAGE 0,0: CLS:SET PAGE 0,1:GOTO 100
 435 goto 406
-
 440 G=RND(-TIME)
 450 C=15:X=0:Y=130:A$="  >   Generating crystals   <  ":GOSUB 1590
 460 FOR I%=1 TO 34
@@ -86,7 +82,6 @@
 690 GOSUB 1050 : IF PC%=2 THEN X=X+140: GOSUB 1050
 695 set page 0,1:Line(x-1,93)-(x+13,107),c,b:Line(x+2,93)-(x+10,107),0,b :set page 0,0
 700 NEXT I%
-705 'Line(4,193)-(18,207),15,b:Line(7,193)-(15,207),0,b
 710 FOR I%=1 TO 34 ' draw field
 720 FOR J%=1 TO 11 
 730 GOSUB 1010
@@ -111,7 +106,6 @@
 930 NEXT I%
 940 IF AD%<>0 THEN 850
 950 C=15:X=110-90*S:Y=5:A$=STR$(TTL%(TURN)):GOSUB 1590
-960 'beep:'a$=input$(1)
 965 IF TTL%(1) = 11*34/2 AND TTL%(2) = 11*34/2 THEN LINE (60,60)-(200,90),0,BF:LINE (60,60)-(200,90),15,B:X=100:Y=72:A$="D R A W !":GOSUB 1590:COPY(80,72)-STEP(100,12) TO (79,72),,TPSET:GOTO 980
 970 IF TTL%(TURN) > 11*34/2 THEN LINE (60,60)-(200,90),0,BF:LINE (60,60)-(200,90),15,B:X=80:Y=72:A$="Player"+STR$(TURN)+" win!":GOSUB 1590:COPY(80,72)-STEP(100,12) TO (79,72),,TPSET:ELSE GOTO 990 
 980 A$=INKEY$:GOSUB 1640:IF A$="" AND STRIG(1)=0 AND STRIG(2)=0 AND STRIG(3)=0 AND STRIG(4)=0 THEN GOTO 980 ELSE SET PAGE 0,0: CLS:SET PAGE 0,1:GOTO 170
@@ -192,15 +186,10 @@
 1750 RS%(I,1)=A
 1760 NEXT I
 1770 RETURN
-
 1900 LINE(X,Y)-(X+6,Y),s:LINE(X+6,Y)-(X+6,Y+6),s:LINE(X+6,Y+6)-(X,Y),s:PAINT(x+2,y+1),s,s:'left bottom
 1910 LINE(X+7,Y-1)-(X+12,Y-1),s:LINE(X+12,Y-1)-(X+7,Y-6),s:LINE(X+7,Y-6)-(X+7,Y-1),s:PAINT(x+8,y-2),s,s:'right top
 1920 LINE(X,Y-1)-(X+6,Y-1),c:LINE(X+6,Y-1)-(X+6,Y-7),c:LINE(X+6,Y-7)-(X,Y-1),c:PAINT(x+3,y-2),c,c:'left top
-1921 'pset(x+6,y-1),s: line(x+4,y-1)-(x+6,y-3),s:line(x+2,y-1)-(x+6,y-5),s
-1922 'line (x,y-1)-(x+6,y-7),s
-
 1930 LINE(X+7,Y)-(X+7,Y+6),s:LINE(X+7,Y+6)-(X+13,Y),s:LINE(X+13,Y)-(X+7,Y),s:PAINT(x+8,y+1),s,s:'right bottom
-
 1940 pset(x+7,y),0: line(x+9,y)-(x+7,y+2),0: line(x+11,y)-(x+7,y+4),0: line(x+13,y)-(x+7,y+6),0
 1960 RETURN
 2000 LINE(X,Y)-(X+6,Y-6),S:LINE(X+6,Y-6)-(X+12,Y),C:LINE(X+12,Y)-(X+6,Y+6),C:LINE(X,Y)-(X+6,Y+6),C:LINE(X+1,Y)-(X+6,Y-5),C
