@@ -11,9 +11,20 @@ Enter или пробел - выбор,
 
 Благодарю за дельные советы участников Discord сервера "MSX по-русски!" и авторов сайта https://sysadminmosaic.ru/
 
-[Открыть в WebMSX](https://webmsx.org/?DISK=http://px3.org/filler/filler-2.dsk)
+Back in school days, when we just moved from the Yamaha class to the PC class, we cut with friends in Filler (https://ru.wikipedia.org/wiki/Filler). Even then it seemed that a good implementation of it under MSX was very necessary. But it realized when Yamaha had already become retro hardware.
+Try to defeat the computer player, or fight with a friend.
 
-![Заставка](https://github.com/comissarische/MSX-Filler/blob/main/SCREENSHOTS/screen1.png?raw=true))
+Arrow left, Q button - left,
+Enter or space - choice,
+other keys - to the right
+
+For the performance working with arrays, which allows you to play, the X-Basic real-time compiler (Basic KUN) is used.
+
+Thanks for the practical advice to participants of the Discord server "MSX in Russian!" and authors of the site https://sysadminmosaic.ru/
+
+[Открыть в WebMSX / Open in WebMSX](https://webmsx.org/?DISK=http://px3.org/filler/filler-2.dsk)
+
+![Заставка](https://github.com/comissarische/MSX-Filler/blob/main/SCREENSHOTS/screen1.png?raw=true)
 
 ![Скриншот 1](https://github.com/comissarische/MSX-Filler/blob/main/SCREENSHOTS/screen2.png?raw=true)
 
